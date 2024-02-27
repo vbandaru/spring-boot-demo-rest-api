@@ -8,15 +8,13 @@ This repo is organized into multiple branches to show step by step process invol
 > Feel free to see diff between branches see changes
 
 
-
-
 * step1-jar
 
 * step2-dockerize
 
 * step3-k8s
 
-
+## Step-1 Build and run app
 
 ### Build
 
@@ -83,4 +81,3 @@ Output
 {"id":1,"content":"Hello, World!"}
 
 ````
-
