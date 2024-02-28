@@ -34,10 +34,14 @@ output
 
 ### Run
 
+For local testing, set env variable user
+
 ```
+export user=Openshift or set user=Openshift
 java -jar spring-boot-demo-api-0.0.1-SNAPSHOT.jar
 
 ```
+
 
 Output:
 
