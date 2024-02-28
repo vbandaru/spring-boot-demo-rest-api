@@ -69,12 +69,13 @@ Output:
 
 ```
 
-### Test
+#### Test 
 
+call without any parameter should print environment variable
 
 ```
 
-curl http://localhost:8080/greeting?name=Docker
+curl http://localhost:8080/greeting
 
 ```
 
@@ -82,7 +83,24 @@ Output
 
 ```json
 
-{"id":1,"content":"Hello, Docker!"}
+{"id":1,"content":"Hello, Openshift!"}
+
+````
+
+call with name parameter should print given name
+
+
+```
+curl http://localhost:8080/greeting?name=Vijay
+
+
+```
+
+Output
+
+```json
+
+{"id":1,"content":"Hello, Vijay!"}
 
 ````
 
