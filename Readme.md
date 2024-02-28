@@ -35,6 +35,7 @@ output
 ### Run
 
 ```
+export user=Openshift
 java -jar spring-boot-demo-api-0.0.1-SNAPSHOT.jar
 
 ```
@@ -138,7 +139,7 @@ spring-boot-demo-rest-api            1.0            0de2757b3d21   18 minutes ag
 
 
 ```
-docker run -p 8080:8080  spring-boot-demo-rest-api:1.0
+docker run -p 8080:8080 -e user=Openshift spring-boot-demo-rest-api:1.0
 
 ```
 
@@ -182,6 +183,8 @@ Output
 
 #### Test 
 
+call without any parameter should print environment variable
+
 ```
 
 curl http://localhost:8080/greeting
@@ -192,6 +195,24 @@ Output
 
 ```json
 
-{"id":1,"content":"Hello, World!"}
+{"id":1,"content":"Hello, Openshift!"}
+
+````
+
+```
+
+call with name parameter should print given name
+
+
+curl http://localhost:8080/greeting?name=Vijay
+
+
+```
+
+Output
+
+```json
+
+{"id":1,"content":"Hello, Vijay!"}
 
 ````
