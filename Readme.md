@@ -68,9 +68,10 @@ Output:
 
 ### Test
 
+
 ```
 
-curl http://localhost:8080/greeting
+curl http://localhost:8080/greeting?name=Docker
 
 ```
 
@@ -78,7 +79,7 @@ Output
 
 ```json
 
-{"id":1,"content":"Hello, World!"}
+{"id":1,"content":"Hello, Docker!"}
 
 ````
 
