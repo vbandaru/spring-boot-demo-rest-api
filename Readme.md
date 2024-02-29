@@ -93,7 +93,6 @@ call with name parameter should print given name
 ```
 curl http://localhost:8080/greeting?name=Vijay
 
-
 ```
 
 Output
@@ -103,6 +102,39 @@ Output
 {"id":1,"content":"Hello, Vijay!"}
 
 ````
+
+
+
+### Health probes
+
+##### Liveness
+```
+
+curl http://localhost:8080/actuator/health/liveness
+
+```
+
+Output
+
+```json
+
+{"status":"UP"}
+````
+
+##### Readiness
+
+```
+curl http://localhost:8080/actuator/health/readiness
+
+```
+
+Output
+
+```json
+
+{"status":"UP"}
+````
+
 
 
 ## Step 2 - Dockerize
@@ -235,3 +267,36 @@ Output
 {"id":1,"content":"Hello, Vijay!"}
 
 ````
+
+
+### Health probes
+
+##### Liveness
+```
+
+curl http://localhost:8080/actuator/health/liveness
+
+```
+
+Output
+
+```json
+
+{"status":"UP"}
+````
+
+##### Readiness
+
+```
+curl http://localhost:8080/actuator/health/readiness
+
+```
+
+Output
+
+```json
+
+{"status":"UP"}
+````
+
+
