@@ -14,6 +14,14 @@ This repo is organized into multiple branches to show step by step process invol
 
 * step3-k8s
 
+## Pre-req
+
+Have following installed
+
+* JDK 8 or above
+* Maven
+* Docker
+ 
 ## Step-1 Build and run app
 
 ### Build
@@ -159,7 +167,7 @@ spring-boot-demo-rest-api            1.0            0de2757b3d21   18 minutes ag
 
 
 ```
-docker run -p 8080:8080 -e user=Openshift spring-boot-demo-rest-api:1.0
+docker run -d -p 8080:8080 -e user=Openshift spring-boot-demo-rest-api:1.0
 
 ```
 
