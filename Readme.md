@@ -14,6 +14,14 @@ This repo is organized into multiple branches to show step by step process invol
 
 * step3-k8s
 
+## Pre-req
+
+Have following installed
+
+* JDK 8 or above
+* Maven
+* Docker
+ 
 ## Step-1 Build and run app
 
 ### Build
