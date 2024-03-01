@@ -308,3 +308,63 @@ Output
 ````
 
 
+## Step 3 - Kubernetes
+
+#### Deploy to K8s
+```
+./deploy_spring-boot-demo-api.sh
+```
+
+#### Check deployments, pods, services
+```
+kubectl get deployments
+kubectl get pods -o wide
+kubectl get services -o wide
+```
+
+Output
+```
+$ kubectl get deployments
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+spring-boot-demo-api-deployment   5/5     5            5           8h
+
+$ kubectl get pods -o wide
+NAME                                               READY   STATUS    RESTARTS   AGE    IP            NODE           NOMINATED NODE   READINESS GATES
+spring-boot-demo-api-deployment-689f9d8f5c-5klvh   1/1     Running   0          117m   10.244.5.11   kk8s-worker5   <none>           <none>
+spring-boot-demo-api-deployment-689f9d8f5c-6pdrf   1/1     Running   0          117m   10.244.2.11   kk8s-worker2   <none>           <none>
+spring-boot-demo-api-deployment-689f9d8f5c-8z4dw   1/1     Running   0          117m   10.244.1.14   kk8s-worker4   <none>           <none>
+spring-boot-demo-api-deployment-689f9d8f5c-twxt6   1/1     Running   0          117m   10.244.3.13   kk8s-worker1   <none>           <none>
+spring-boot-demo-api-deployment-689f9d8f5c-v9jws   1/1     Running   0          117m   10.244.4.10   kk8s-worker3   <none>           <none>
+
+$ kubectl get services -o wide
+NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE     SELECTOR
+kubernetes                     ClusterIP   10.96.0.1       <none>        443/TCP        9h      <none>
+spring-boot-demo-api-service   NodePort    10.96.121.214   <none>        80:30888/TCP   7h48m   app=spring-boot-demo,component=api
+```
+
+#### Test application
+
+Hit any one of the worker servers listed on the pods above.
+
+```
+curl -s http://kk8s-worker1:30888/greeting | jq .
+curl -s http://kk8s-worker2:30888/greeting | jq .
+curl -s http://kk8s-worker3:30888/greeting | jq .
+curl -s http://kk8s-worker4:30888/greeting | jq .
+curl -s http://kk8s-worker5:30888/greeting | jq .
+
+```
+
+Output
+
+```json
+{
+  "id": 52,
+  "content": "Hello, FirstConfig!"
+}
+````
+
+
+
+
+
