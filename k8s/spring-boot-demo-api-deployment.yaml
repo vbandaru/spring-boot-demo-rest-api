@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-demo-api-deployment
+  labels:
+    app: spring-boot-demo
+    component: api
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: spring-boot-demo
+      component: api
+  template:
+    metadata:
+      annotations:
+        kubernetes.io/change-cause: "Initial version, 1.0"
+      labels:
+        environment: dev
+        app: spring-boot-demo
+        component: api
+        version: "1.0"
+    spec:
+      containers:
+        - name: spring-boot-demo-api
+          image: vbandaru8/spring-boot-demo-rest-api:1.0
+          imagePullPolicy: Always
+          tty: true
+          envFrom:
+            - configMapRef:
+                name: spring-boot-demo-api-config
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 2
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 2
+

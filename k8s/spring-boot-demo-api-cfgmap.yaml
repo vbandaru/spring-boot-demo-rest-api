@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-boot-demo-api-config
+data:
+  user: FirstConfig
+  #user: NewConfig
+
