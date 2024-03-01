@@ -243,3 +243,39 @@ Output
 {"id":1,"content":"Hello, Vijay!"}
 
 ````
+
+
+### Push to DockerHub
+
+Login
+
+```
+docker login
+```
+
+Output
+
+```
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: vbandaru8
+Password: 
+Login Succeeded
+```
+
+Tag image
+
+```
+docker tag spring-boot-demo-rest-api:1.0 vbandaru8/spring-boot-demo-rest-api:1.0
+```
+
+Push image
+
+```
+docker push vbandaru8/spring-boot-demo-rest-api:1.0
+```
+
+### Pull from DockerHub
+
+```
+docker pull vbandaru8/spring-boot-demo-rest-api:1.0
+```
