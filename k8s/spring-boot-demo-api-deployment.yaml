@@ -14,16 +14,16 @@ spec:
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "Initial version, 1.0"
+        kubernetes.io/change-cause: "Update to version, 3.0"
       labels:
         environment: dev
         app: spring-boot-demo
         component: api
-        version: "1.0"
+        version: "3.0"
     spec:
       containers:
         - name: spring-boot-demo-api
-          image: vbandaru8/spring-boot-demo-rest-api:1.0
+          image: vbandaru8/spring-boot-demo-rest-api:3.0
           imagePullPolicy: Always
           tty: true
           envFrom:
