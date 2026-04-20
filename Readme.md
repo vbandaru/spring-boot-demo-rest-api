@@ -27,7 +27,7 @@ Have following installed
 ### Build
 
 ```
-mvn clean package
+mvn clean package -DskipTests
 ```
 
 
@@ -49,13 +49,9 @@ export user=Openshift or set user=Openshift
 java -jar spring-boot-demo-api-0.0.1-SNAPSHOT.jar
 
 ```
-
-
 Output:
 
 ```
-
-
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
 ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
